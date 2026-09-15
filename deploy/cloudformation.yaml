@@ -9,7 +9,7 @@ Parameters:
     Type: String
     Description: >-
       Your GitHub username. The stack downloads
-      https://raw.githubusercontent.com/<username>/voting_monolith/main/deploy/userdata.sh
+      https://raw.githubusercontent.com/<username>/voting-monolith/main/deploy/userdata.sh
       Push your REPO_URL edit to main before you create the stack.
     AllowedPattern: "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$"
     ConstraintDescription: A GitHub username (letters, numbers, hyphens).
@@ -52,7 +52,7 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash
           set -euo pipefail
-          curl -fsSL "https://raw.githubusercontent.com/${GitHubUsername}/voting_monolith/main/deploy/userdata.sh" \
+          curl -fsSL "https://raw.githubusercontent.com/${GitHubUsername}/voting-monolith/main/deploy/userdata.sh" \
             -o /tmp/voting-userdata.sh
           bash /tmp/voting-userdata.sh
       Tags:

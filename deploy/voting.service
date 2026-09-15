@@ -8,14 +8,14 @@ Requires=dynamodb-local.service
 Type=simple
 User=ec2-user
 Group=ec2-user
-WorkingDirectory=/home/ec2-user/voting_monolith
-EnvironmentFile=/home/ec2-user/voting_monolith/.env
+WorkingDirectory=/home/ec2-user/voting-monolith
+EnvironmentFile=/home/ec2-user/voting-monolith/.env
 # Bind to port 80 without running the whole process as root.
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 # Wait until DynamoDB Local answers before starting gunicorn.
-ExecStartPre=/home/ec2-user/voting_monolith/.venv/bin/python /home/ec2-user/voting_monolith/scripts/wait_for_dynamodb.py
-ExecStart=/home/ec2-user/voting_monolith/.venv/bin/gunicorn --workers 2 --bind 0.0.0.0:80 'voting.app:launch()'
+ExecStartPre=/home/ec2-user/voting-monolith/.venv/bin/python /home/ec2-user/voting-monolith/scripts/wait_for_dynamodb.py
+ExecStart=/home/ec2-user/voting-monolith/.venv/bin/gunicorn --workers 2 --bind 0.0.0.0:80 'voting.app:launch()'
 Restart=on-failure
 RestartSec=5
 

@@ -16,7 +16,7 @@ The file file `deploy/userdata.sh` is used in the deployment process, and you mu
 * Near the top of the file you will find the line:
 
   ```
-  REPO_URL="https://github.com/YOUR_GITHUB_USERNAME/voting_monolith.git"
+  REPO_URL="https://github.com/YOUR_GITHUB_USERNAME/voting-monolith.git"
   ```
 * Change `YOUR_GITHUB_USERNAME` to your Github username.
 * Commit this change to the git repo, and push it back to your Github account
