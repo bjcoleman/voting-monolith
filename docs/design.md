@@ -10,15 +10,14 @@ This document describes the design of the Flask server and how data moves throug
 ![Arch](arch.png)
 
 
-
 ## Data representations
 
 The data for this application is a collection of polls.  This section describes how this data is stored in the database and the various types used to pass data around within the Flask server.
 
 The database layer queries the database to retrieve **all** the information about a poll.  The application layer extracts the necessary information for the request.  The API layer takes the data and translates it into an HTTP reponse message.
 
-### Database Representation
 
+### Database Representation
 
 Within the database, we store all the data for a single poll together.  Each poll has an ID, creation date, question, and list of options (each of which has a number of votes).
 
@@ -41,7 +40,6 @@ For example, here is a single poll:
 The database is made up of a collection of polls.
 
 
-
 ### Raw Query Result
 
 The Python type **`PollData`** is used to hold the result of a query.  The names and values of the fields match the data in the database exactly:
@@ -60,10 +58,10 @@ PollData(
 )
 ```
 
+
 ### Poll Summary
 
 When the user views the list of available polls, for each poll they see the question text and the total number of votes, but they do not see the options.  The Python type **`PollSummary`** holds the information used for this view:
-
 
 ```python
 PollSummary(
@@ -74,9 +72,7 @@ PollSummary(
 ```
 
 
-
 ### Poll Question
-
 
 When a user votes on a poll, they see the question text, the options, and the total number of votes.  They do NOT see the number of votes for each option.  The Python type **`PollQuestion`**  holds the information used for this view:
 

@@ -4,6 +4,7 @@ This is the monolithic implementation of the Voting application. See the **specs
 
 **Monolithic** here means Flask (HTTP API and browser UI) and DynamoDB run together on a single machine.
 
+
 ## Documentation
 
 | Doc | Contents |
@@ -13,11 +14,13 @@ This is the monolithic implementation of the Voting application. See the **specs
 | [Deploy with CloudFormation](docs/deploy-cloudformation.md) | CLI: create stack from `deploy/cloudformation.yaml` |
 | [Design](docs/design.md) | Layers, data types, UI notes, package layout |
 
+
 ## Quick start
 
 - Create a virtual environment and install dependencies
 - Configure `.env` from `config/example.env`
 - Start DynamoDB Local and create the `Polls` table
 - Run `python -m voting.app` and open [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+
 
 See [Development setup](docs/development.md) for full steps.

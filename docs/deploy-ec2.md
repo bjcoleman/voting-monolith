@@ -2,6 +2,7 @@
 
 This document explains how to run the monolithic voting app on an EC2 instance.
 
+
 ## One-Time Setup
 
 The file file `deploy/userdata.sh` is used in the deployment process, and you must change one line before you deploy
@@ -20,14 +21,14 @@ The file file `deploy/userdata.sh` is used in the deployment process, and you mu
   git commit -m "set github account"
   git push origin main
   ```
-  
+
+
 If the `git push` command fails, check the url of `origin` and make sure it points at your fork of the repo
 
   ```
   git remote -v
   ```
-  
-  
+
 
 ## Deploy Process
 
@@ -72,3 +73,5 @@ The Cloud-init process writes out output of the userdata script to `/var/log/clo
 - `sudo systemctl restart voting` — restart the web process after a config or code change
 - `sudo journalctl -u voting -f` — follow the voting (gunicorn) logs
 - `sudo journalctl -u dynamodb-local -f` — follow the DynamoDB Local logs
+
+
